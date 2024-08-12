@@ -1,0 +1,31 @@
+{
+  "name": "@rolldown/plugin-node-polyfills",
+  "version": "1.0.0",
+  "description": "node polyfills for Rolldown",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "prebuild": "rm -rf dist",
+    "build": "node --import @oxc-node/core/register scripts/build.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolldown/rolldown-plugin-node-polyfills.git"
+  },
+  "keywords": [
+    "rolldown"
+  ],
+  "author": "Evan You",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rolldown/rolldown-plugin-node-polyfills/issues"
+  },
+  "homepage": "https://github.com/rolldown/rolldown-plugin-node-polyfills#readme",
+  "packageManager": "pnpm@9.7.0",
+  "devDependencies": {
+    "@types/node": "^22.2.0",
+    "rolldown": "canary",
+    "typescript": "^5.5.4"
+  }
+}

@@ -12,7 +12,8 @@
   "scripts": {
     "test": "vitest --run",
     "prebuild": "rm -rf dist",
-    "build": "node scripts/build.js && tsc -p . && rolldown -c rolldown.config.mjs"
+    "build": "node scripts/build.js && tsc -p . && rolldown -c rolldown.config.mjs",
+    "prepublishOnly": "npm build"
   },
   "repository": {
     "type": "git",

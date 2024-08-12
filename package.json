@@ -2,12 +2,17 @@
   "name": "@rolldown/plugin-node-polyfills",
   "version": "1.0.0",
   "description": "node polyfills for Rolldown",
-  "main": "index.js",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist/index.cjs",
+    "dist/index.d.ts"
+  ],
   "scripts": {
-    "test": "node --test",
+    "test": "vitest --run",
     "prebuild": "rm -rf dist",
-    "build": "node --import @oxc-node/core/register scripts/build.ts"
+    "build": "node scripts/build.js && tsc -p . && rolldown -c rolldown.config.mjs"
   },
   "repository": {
     "type": "git",
@@ -26,6 +31,7 @@
   "devDependencies": {
     "@types/node": "^22.2.0",
     "rolldown": "canary",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
   }
 }

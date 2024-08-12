@@ -1,6 +1,6 @@
 import type { Plugin } from 'rolldown'
 import { mods } from './modules'
-import { posix, resolve } from 'node:path'
+import { posix } from 'node:path'
 import { randomBytes } from 'node:crypto'
 import POLYFILLS from './polyfills'
 
@@ -15,8 +15,6 @@ const FILENAME_PATH = '\0node-polyfills:filename'
 
 export interface NodePolyfillsOptions {
   baseDir?: string
-  include?: Array<string | RegExp> | string | RegExp | null
-  exclude?: Array<string | RegExp> | string | RegExp | null
 }
 
 export default function (opts: NodePolyfillsOptions = {}): Plugin {
@@ -24,6 +22,19 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
   const dirs = new Map<string, string>()
   return {
     name: 'polyfill-node',
+    options(options) {
+      return {
+        ...options,
+        inject: {
+          process: PREFIX + 'process',
+          Buffer: [PREFIX + 'buffer', 'Buffer'],
+          global: PREFIX + 'global',
+          __filename: FILENAME_PATH,
+          __dirname: DIRNAME_PATH,
+          ...options.inject
+        }
+      }
+    },
     resolveId(importee: string, importer?: string) {
       // Fixes commonjs compatability: https://github.com/FredKSchott/rollup-plugin-polyfill-node/pull/42
       if (importee[0] == '\0' && /\?commonjs-\w+$/.test(importee)) {

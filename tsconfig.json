@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "strict": true,
     "moduleResolution": "node",
     "module": "ES2020",
     "target": "es2018",
     "declaration": true,
-    "outDir": "lib",
     "declarationDir": "dist",
     "isolatedModules": true,
-    "isolatedDeclarations": true
+    "isolatedDeclarations": true,
+    "emitDeclarationOnly": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

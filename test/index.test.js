@@ -50,31 +50,17 @@ describe('rollup-plugin-node-polyfills', function () {
     })
   })
 
-  // it('crypto option works (though is broken)', function (done) {
-  //   rollup
-  //     .rollup({
-  //       input: 'test/examples/crypto-broken.js',
-  //       plugins: [
-  //         nodePolyfills({
-  //           include: null,
-  //           crypto: true
-  //         })
-  //       ]
-  //     })
-  //     .then(
-  //       function () {
-  //         done(new Error('should not get here'))
-  //       },
-  //       function (err) {
-  //         if (
-  //           err.message ===
-  //           `"diffieHellman" is not exported by "\u0000polyfill-node.crypto.js", imported by "test/examples/crypto-broken.js".`
-  //         ) {
-  //           done()
-  //           return
-  //         }
-  //         done(err)
-  //       }
-  //     )
-  // })
+  test('crypto option works (though is broken)', async () => {
+    let err
+    try {
+      const bundle = await rolldown({
+        input: 'test/examples/crypto-broken.js',
+        plugins: [nodePolyfills()]
+      })
+      const generated = await bundle.generate({ format: 'cjs' })
+    } catch (e) {
+      return
+    }
+    throw new Error('should not get here')
+  })
 })

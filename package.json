@@ -2,40 +2,44 @@
   "name": "@rolldown/plugin-node-polyfills",
   "version": "1.0.0",
   "description": "node polyfills for Rolldown",
-  "main": "dist/index.cjs",
-  "types": "dist/index.d.ts",
-  "type": "module",
-  "files": [
-    "dist/index.cjs",
-    "dist/index.d.ts"
-  ],
-  "scripts": {
-    "test": "vitest --run",
-    "prebuild": "rm -rf dist",
-    "build": "node scripts/build.js && tsc -p . && rolldown -c rolldown.config.mjs",
-    "prepublishOnly": "npm build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rolldown/rolldown-plugin-node-polyfills.git"
-  },
   "keywords": [
     "rolldown",
     "rolldown-plugin"
   ],
-  "author": "Evan You",
-  "license": "MIT",
+  "homepage": "https://github.com/rolldown/rolldown-plugin-node-polyfills#readme",
   "bugs": {
     "url": "https://github.com/rolldown/rolldown-plugin-node-polyfills/issues"
   },
-  "homepage": "https://github.com/rolldown/rolldown-plugin-node-polyfills#readme",
-  "packageManager": "pnpm@10.28.1",
+  "license": "MIT",
+  "author": "Evan You",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolldown/rolldown-plugin-node-polyfills.git"
+  },
+  "files": [
+    "dist/index.cjs",
+    "dist/index.d.ts"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "vitest --run",
+    "prebuild": "rm -rf dist",
+    "build": "node scripts/build.js && tsc -p . && rolldown -c rolldown.config.mjs",
+    "prepublishOnly": "npm build",
+    "lint": "oxlint",
+    "format": "oxfmt"
+  },
   "devDependencies": {
     "@types/node": "^22.2.0",
+    "oxfmt": "^0.27.0",
+    "oxlint": "^1.42.0",
     "rolldown": "^1.0.0-rc.1",
     "typescript": "^5.5.4",
     "vitest": "^4.0.0"
   },
+  "packageManager": "pnpm@10.28.1",
   "compatiblePackages": {
     "schemaVersion": 1,
     "rollup": {

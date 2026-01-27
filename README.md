@@ -11,38 +11,38 @@ npm install --save-dev @rolldown/plugin-node-polyfills
 ```
 
 ```js
-import { rolldown } from 'rolldown'
-import nodePolyfills from '@rolldown/plugin-node-polyfills'
+import { rolldown } from "rolldown";
+import nodePolyfills from "@rolldown/plugin-node-polyfills";
 
 rolldown({
-  entry: 'main.js',
-  plugins: [nodePolyfills()]
-})
+  entry: "main.js",
+  plugins: [nodePolyfills()],
+});
 ```
 
 ## Node.js Builtin Support Table
 
 The following modules include ES6 specific version which allow you to do named imports in addition to the default import and should work fine if you only use this plugin.
 
-- process*
+- process\*
 - events
-- stream*
-- util*
+- stream\*
+- util\*
 - path
-- buffer*
+- buffer\*
 - querystring
-- url*
-- string_decoder*
+- url\*
+- string_decoder\*
 - punycode
-- http*†
-- https*†
-- os*
-- assert*
+- http\*†
+- https\*†
+- os\*
+- assert\*
 - constants
-- timers*
-- console*‡
-- vm*§
-- zlib*
+- timers\*
+- console\*‡
+- vm\*§
+- zlib\*
 - tty
 - domain
 - dns∆
@@ -56,8 +56,7 @@ The following modules include ES6 specific version which allow you to do named i
 - tls∆
 - fs˚
 - crypto˚
-- perf_hooks˚ - **New:* just an empty shim for now, but would love help building a true polyfill!*
-
+- perf*hooks˚ - \*\_New:* just an empty shim for now, but would love help building a true polyfill!\*
 
 † the http and https modules are actually the same and don't differentiate based on protocol
 
@@ -67,6 +66,6 @@ The following modules include ES6 specific version which allow you to do named i
 
 ∆ not shimmed, just returns mock
 
-˚ shimmed, but too complex to polyfill fully. Avoid if at all possible. Some bugs and partial support expected. 
+˚ shimmed, but too complex to polyfill fully. Avoid if at all possible. Some bugs and partial support expected.
 
 Not all included modules bundle equally, streams (and by extension anything that requires it like http) are a mess of circular references that are pretty much impossible to tree-shake out, similarly url methods are actually a shortcut to a url object so those methods don't tree shake out very well, punycode, path, querystring, events, util, and process tree shake very well especially if you do named imports.

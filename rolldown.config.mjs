@@ -1,9 +1,8 @@
-
 export default {
-  input: './src/index.ts',
-  platform: 'node',
+  input: "./src/index.ts",
+  platform: "node",
   output: {
-    format: 'cjs',
-    entryFileNames: '[name].cjs'
-  }
-}
+    format: "cjs",
+    entryFileNames: "[name].cjs",
+  },
+};

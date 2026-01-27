@@ -1,4 +1,4 @@
-name: 'test'
+name: "test"
 on: push
 
 jobs:
@@ -13,9 +13,11 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
-          node-version-file: '.node-version'
-          cache: 'pnpm'
+          node-version-file: ".node-version"
+          cache: "pnpm"
 
       - run: pnpm install
+      - run: pnpm lint
+      - run: pnpm format --check
       - run: pnpm build
       - run: pnpm test

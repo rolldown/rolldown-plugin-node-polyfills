@@ -25,14 +25,17 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
     options(options) {
       return {
         ...options,
-        inject: {
-          process: PREFIX + 'process',
-          Buffer: [PREFIX + 'buffer', 'Buffer'],
-          global: PREFIX + 'global',
-          __filename: FILENAME_PATH,
-          __dirname: DIRNAME_PATH,
-          ...options.inject
-        }
+        transform: {
+          ...options.transform,
+          inject: {
+            process: PREFIX + 'process',
+            Buffer: [PREFIX + 'buffer', 'Buffer'],
+            global: PREFIX + 'global',
+            __filename: FILENAME_PATH,
+            __dirname: DIRNAME_PATH,
+            ...options.transform?.inject,
+          },
+        },
       }
     },
     resolveId(importee: string, importer?: string) {

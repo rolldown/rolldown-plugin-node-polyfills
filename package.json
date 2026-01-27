@@ -20,7 +20,8 @@
     "url": "git+https://github.com/rolldown/rolldown-plugin-node-polyfills.git"
   },
   "keywords": [
-    "rolldown"
+    "rolldown",
+    "rolldown-plugin"
   ],
   "author": "Evan You",
   "license": "MIT",

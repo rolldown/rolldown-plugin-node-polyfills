@@ -35,5 +35,20 @@
     "rolldown": "canary",
     "typescript": "^5.5.4",
     "vitest": "^4.0.0"
+  },
+  "compatiblePackages": {
+    "schemaVersion": 1,
+    "rollup": {
+      "type": "incompatible",
+      "reason": "Uses Rolldown-specific APIs"
+    },
+    "rolldown": {
+      "type": "compatible",
+      "versions": "^1.0.0-rc.0"
+    },
+    "vite": {
+      "type": "incompatible",
+      "reason": "Does not support dev"
+    }
   }
 }

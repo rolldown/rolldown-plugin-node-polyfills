@@ -28,11 +28,11 @@
     "url": "https://github.com/rolldown/rolldown-plugin-node-polyfills/issues"
   },
   "homepage": "https://github.com/rolldown/rolldown-plugin-node-polyfills#readme",
-  "packageManager": "pnpm@9.7.0",
+  "packageManager": "pnpm@10.28.1",
   "devDependencies": {
     "@types/node": "^22.2.0",
     "rolldown": "canary",
     "typescript": "^5.5.4",
-    "vitest": "^2.0.5"
+    "vitest": "^4.0.0"
   }
 }

@@ -39,7 +39,7 @@
     "typescript": "^5.5.4",
     "vitest": "^4.0.0"
   },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.1.2",
   "compatiblePackages": {
     "schemaVersion": 1,
     "rollup": {

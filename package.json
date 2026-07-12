@@ -36,7 +36,7 @@
     "oxfmt": "^0.50.0",
     "oxlint": "^1.42.0",
     "rolldown": "^1.0.0-rc.1",
-    "typescript": "^5.5.4",
+    "typescript": "^7.0.0",
     "vitest": "^4.0.0"
   },
   "packageManager": "pnpm@11.1.2",

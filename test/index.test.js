@@ -3,7 +3,7 @@ import os from "node:os";
 import constants from "node:constants";
 import { rolldown } from "rolldown";
 import nodePolyfills from "../dist/index.cjs";
-import { describe, test } from "vitest";
+import { describe, expect, test } from "vitest";
 
 const files = [
   "events.js",
@@ -20,6 +20,7 @@ const files = [
   "zlib.js",
   "domain.js",
   "crypto.js",
+  "node-protocol.js",
 ];
 
 describe("rollup-plugin-node-polyfills", function () {
@@ -61,5 +62,17 @@ describe("rollup-plugin-node-polyfills", function () {
       return;
     }
     throw new Error("should not get here");
+  });
+
+  test("does not polyfill `node:` imports that are not Node.js built-ins", async () => {
+    const bundle = await rolldown({
+      input: "test/examples/node-protocol-non-builtin.js",
+      plugins: [nodePolyfills()],
+      logLevel: "silent",
+    });
+    const generated = await bundle.generate({ format: "esm" });
+    const chunk = generated.output[0];
+    expect(chunk.moduleIds.some((id) => id.startsWith("\0polyfill-node."))).toBe(false);
+    expect(chunk.code).toContain('from "node:global"');
   });
 });

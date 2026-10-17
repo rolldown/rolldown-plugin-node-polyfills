@@ -43,6 +43,10 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
       if (importee[0] == "\0" && /\?commonjs-\w+$/.test(importee)) {
         importee = importee.slice(1).replace(/\?commonjs-\w+$/, "");
       }
+      // Only strip `node:` from modules with a polyfill, e.g. `node:path` -> `path`, but not `node:empty`
+      if (importee.startsWith("node:") && mods.has(importee.slice(5))) {
+        importee = importee.slice(5);
+      }
       if (importee === DIRNAME_PATH) {
         const id = getRandomId();
         dirs.set(id, dirname("/" + relative(basedir, importer!)));

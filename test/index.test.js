@@ -64,15 +64,15 @@ describe("rollup-plugin-node-polyfills", function () {
     throw new Error("should not get here");
   });
 
-  test("does not polyfill `node:` imports that are not Node.js built-ins", async () => {
+  test("does not polyfill `node:` imports without a polyfill module", async () => {
     const bundle = await rolldown({
-      input: "test/examples/node-protocol-non-builtin.js",
+      input: "test/examples/node-protocol-no-polyfill.js",
       plugins: [nodePolyfills()],
       logLevel: "silent",
     });
     const generated = await bundle.generate({ format: "esm" });
     const chunk = generated.output[0];
     expect(chunk.moduleIds.some((id) => id.startsWith("\0polyfill-node."))).toBe(false);
-    expect(chunk.code).toContain('from "node:global"');
+    expect(chunk.code).toContain('from "node:empty"');
   });
 });

@@ -22,7 +22,7 @@ importers:
         version: 1.2.14
       typescript:
         specifier: ^5.5.4
-        version: 5.5.4
+        version: 5.9.3
       vite:
         specifier: ^8.3.4
         version: 8.3.4(@types/node@22.2.0)
@@ -629,8 +629,8 @@ packages:
     resolution: {integrity: sha512-LgO3D9yZJjApUiuUfl9iFAwrtaX4+lok3wJIqttGoKCHlWUqHqbQpnxCf82L8FjgKsh4iGo78hqJwgL8F6To2A==}
     engines: {node: '>=14.0.0'}
 
-  typescript@5.5.4:
-    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -1129,7 +1129,7 @@ snapshots:
 
   tinyrainbow@3.2.0: {}
 
-  typescript@5.5.4: {}
+  typescript@5.9.3: {}
 
   undici-types@6.13.0: {}
 
